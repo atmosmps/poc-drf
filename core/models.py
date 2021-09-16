@@ -16,11 +16,13 @@ class TouristPlace(models.Model):
     rating = models.ManyToManyField(Rating)
     created_at = models.DateTimeField(editable=False)
     updated_at = models.DateTimeField(null=True)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    address = models.ForeignKey(
+        Address, on_delete=models.CASCADE, null=True, blank=True
+    )
 
     def __str__(self):
         return self.name
-    
+
     def save(self, *args, **kwargs):
         """On save, update timestamps."""
         if not self.id:
