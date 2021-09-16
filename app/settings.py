@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'resource',
     'review',
     'rating',
+    'address',
 ]
 
 MIDDLEWARE = [

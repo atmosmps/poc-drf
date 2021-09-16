@@ -9,7 +9,7 @@ class Resource(models.Model):
     closing_time = models.TimeField()
     minimum_age = models.IntegerField()
     created_at = models.DateTimeField(editable=False)
-    updated_at = models.DateTimeField()
+    updated_at = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.name

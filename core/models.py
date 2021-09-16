@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+from address.models import Address
 from rating.models import Rating
 from resource.models import Resource
 from review.models import Review
@@ -14,7 +15,8 @@ class TouristPlace(models.Model):
     review = models.ManyToManyField(Review)
     rating = models.ManyToManyField(Rating)
     created_at = models.DateTimeField(editable=False)
-    updated_at = models.DateTimeField()
+    updated_at = models.DateTimeField(null=True)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

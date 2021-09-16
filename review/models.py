@@ -9,7 +9,7 @@ class Review(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=True)
     created_at = models.DateTimeField(editable=False)
-    updated_at = models.DateTimeField()
+    updated_at = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.user.username
