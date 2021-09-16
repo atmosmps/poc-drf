@@ -19,12 +19,16 @@ from rest_framework import routers
 
 from address.api.viewsets import AddressViewSet
 from core.api.viewsets import TouristPlaceViewSet
+from rating.api.viewsets import RatingViewSet
 from resource.api.viewsets import ResourceViewSet
+from review.api.viewsets import ReviewViewSet
 
 router = routers.DefaultRouter()
-router.register(r'touristplace', TouristPlaceViewSet)
-router.register(r'resource', ResourceViewSet)
-router.register(r'address', AddressViewSet)
+router.register(r'touristplaces', TouristPlaceViewSet, basename='TouristPlace')
+router.register(r'resources', ResourceViewSet)
+router.register(r'addresses', AddressViewSet)
+router.register(r'reviews', ReviewViewSet)
+router.register(r'ratings', RatingViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
