@@ -1,18 +1,13 @@
 from django.db import models
 from django.utils import timezone
 
-from rating.models import Rating
-from resource.models import Resource
-from review.models import Review
 
-
-class TouristPlace(models.Model):
+class Resource(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField()
-    approved = models.BooleanField(default=False)
-    resource = models.ManyToManyField(Resource)
-    review = models.ManyToManyField(Review)
-    rating = models.ManyToManyField(Rating)
+    opening_time = models.TimeField()
+    closing_time = models.TimeField()
+    minimum_age = models.IntegerField()
     created_at = models.DateTimeField(editable=False)
     updated_at = models.DateTimeField()
 
@@ -24,4 +19,4 @@ class TouristPlace(models.Model):
         if not self.id:
             self.created_at = timezone.now()
         self.updated_at = timezone.now()
-        return super(TouristPlace, self).save(*args, **kwargs)
+        return super(Resource, self).save(*args, **kwargs)
