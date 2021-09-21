@@ -8,5 +8,5 @@ class ResourceSerializer(ModelSerializer):
         model = Resource
         fields = [
             'id', 'name', 'description', 'opening_time', 'closing_time',
-            'minimum_age', 'created_at'
+            'minimum_age', 'created_at', 'image'
         ]

@@ -19,6 +19,7 @@ class TouristPlace(models.Model):
     address = models.ForeignKey(
         Address, on_delete=models.CASCADE, null=True, blank=True
     )
+    image = models.ImageField(upload_to='tourist_place', null=True, blank=True)
 
     def __str__(self):
         return self.name

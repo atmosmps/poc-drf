@@ -10,6 +10,7 @@ class Resource(models.Model):
     minimum_age = models.IntegerField()
     created_at = models.DateTimeField(editable=False)
     updated_at = models.DateTimeField(null=True)
+    image = models.ImageField(upload_to='resource', null=True, blank=True)
 
     def __str__(self):
         return self.name
