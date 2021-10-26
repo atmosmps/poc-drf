@@ -1,4 +1,5 @@
 from rest_framework.decorators import action
+from rest_framework.filters import SearchFilter
 from rest_framework.viewsets import ModelViewSet
 
 from core.api.serializers import TouristPlaceSerializer
@@ -8,11 +9,13 @@ from core.models import TouristPlace
 class TouristPlaceViewSet(ModelViewSet):
     """A simple ViewSet for viewing and editing accounts."""
     serializer_class = TouristPlaceSerializer
+    filter_backends = (SearchFilter,)
+    search_fields = ('name', 'description')
 
     def get_queryset(self):
-        id = self.request.query_params.get['id', None]
-        name = self.request.query_params.get['name', None]
-        description = self.request.query_params.get['description', None]
+        id = self.request.query_params.get('id', None)
+        name = self.request.query_params.get('name', None)
+        description = self.request.query_params.get('description', None)
 
         queryset = TouristPlace.objects.all()
 

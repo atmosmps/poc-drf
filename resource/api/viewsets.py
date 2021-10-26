@@ -8,3 +8,4 @@ class ResourceViewSet(ModelViewSet):
     """A simple ViewSet for viewing and editing accounts."""
     queryset = Resource.objects.all()
     serializer_class = ResourceSerializer
+    filter_fields = ('name', 'description')
