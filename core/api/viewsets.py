@@ -1,5 +1,8 @@
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
+from rest_framework.permissions import IsAuthenticated, \
+    IsAuthenticatedOrReadOnly
 from rest_framework.viewsets import ModelViewSet
 
 from core.api.serializers import TouristPlaceSerializer
@@ -29,6 +32,14 @@ class TouristPlaceViewSet(ModelViewSet):
     
     lookup_field = 'name'
     """
+
+    """
+    permission_classes = (IsAuthenticatedOrReadOnly,) por exemplo,
+    só permite acesso a requsiões GET, para os demais métodos será
+    necessario o token.
+    """
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         id = self.request.query_params.get('id', None)

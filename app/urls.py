@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
 
 from address.api.viewsets import AddressViewSet
 from core.api.viewsets import TouristPlaceViewSet
@@ -33,4 +34,5 @@ router.register(r'ratings', RatingViewSet)
 urlpatterns = [
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api-token-auth/', obtain_auth_token)
 ]
