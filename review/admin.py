@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from actions import reprove_comments, aprove_comments
+from .actions import reprove_comments, aprove_comments
 from .models import Review
 
 
