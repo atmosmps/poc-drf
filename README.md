@@ -6,7 +6,7 @@ This is a project that aims to test some usage concepts, techniques and technolo
 
 # This project contain
 
-- [ ] Auth JWT Authetication
+- [X] Auth JWT Authetication
 - [ ] Open API Integration
 - [ ] Automated tests
     - [ ] Integration tests

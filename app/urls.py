@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from rest_framework.authtoken.views import obtain_auth_token
+# from rest_framework.authtoken.views import obtain_auth_token
 
 from address.api.viewsets import AddressViewSet
 from core.api.viewsets import TouristPlaceViewSet
 from rating.api.viewsets import RatingViewSet
 from resource.api.viewsets import ResourceViewSet
 from review.api.viewsets import ReviewViewSet
+from rest_framework_simplejwt import views as jwt_views
 
 router = routers.DefaultRouter()
 router.register(r'touristplaces', TouristPlaceViewSet, basename='TouristPlace')
@@ -34,5 +35,15 @@ router.register(r'ratings', RatingViewSet)
 urlpatterns = [
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('api-token-auth/', obtain_auth_token)
+    # path('api-token-auth/', obtain_auth_token)
+    path(
+        'api/auth/token/',
+        jwt_views.TokenObtainPairView.as_view(),
+        name='token_auth_obtain_pair'
+    ),
+    path(
+        'api/auth/token/refresh/',
+        jwt_views.TokenRefreshView.as_view(),
+        name='token_auth_refresh'
+    ),
 ]

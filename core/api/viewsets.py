@@ -1,5 +1,5 @@
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.decorators import action
+from rest_framework.decorators import action, permission_classes
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
@@ -25,10 +25,10 @@ class TouristPlaceViewSet(ModelViewSet):
     Substitui o comportamento padrão de busca pelo id do model, e passa a
     realizar a busca principal pelo campo definido em "lookup_field", que por
     padrão é o ID do model.
-    
+
     OBS: o campo definido em "lookup_field" precisa ser exclusivo(unique), caso
     contrário será retornado um exceção: MultipleObjectsReturned
-    
+
     lookup_field = 'name'
     """
 
@@ -38,8 +38,9 @@ class TouristPlaceViewSet(ModelViewSet):
     necessario o token.
     """
 
-    #authentication_classes = (TokenAuthentication,)
-    #permission_classes = (IsAuthenticated,)
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, )
 
     def get_queryset(self):
         id = self.request.query_params.get('id', None)
