@@ -21,6 +21,16 @@ The final idea is to understand the advantages and disadvantages of adopting the
 - [ ] Dockerized app
 - [ ] Use a CI service to deploy in heroku lke a gitlab CI
 
+# TODO
+
+- Remover projeto do heroku e recrialo novamente com o build pack do poetry
+- Criar documentação para Deploy com Heroku
+
+- [ ] Refactor endpoints
+    - Add a Item endpoint
+    - A Categorie contain many movies
+    - A Item is a Autheticated endpint and categorie to
+
 # Positive points
 
 - It’s a flexible and extensible toolkit used to build Web APIs in Django;
@@ -34,13 +44,6 @@ The final idea is to understand the advantages and disadvantages of adopting the
   but a layer library that allows you to build a Rest API using the Django framework;
 - By choosing to use drf, the developer is stuck with the django ecosystem, not being able to choose to use modules
 such as ORM other than the one provided by Django itself, for example.
-
-# TODO
-
-- [ ] Refactor endpoints
-    - Add a Item endpoint
-    - A Categorie contain many movies
-    - A Item is a Autheticated endpint and categorie to
 
 # Articles used to help improve project
 
