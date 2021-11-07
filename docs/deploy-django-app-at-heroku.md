@@ -1,6 +1,16 @@
 # Deploy Django App at Heroku
 
-Minimal configuration to host a Django project at Heroku.
+## Minimal configuration to host a Django project at Heroku.
+
+If you use a Django app with the poetry dependence manager.
+You need install a [Python Poetry Buildpack](https://elements.heroku.com/buildpacks/moneymeets/python-poetry-buildpack)
+for [deploy in Heroku](https://github.com/moneymeets/python-poetry-buildpack).
+After having installed follow the steps below.
+
+If you are trying to configure a project that has already been deployed on Heroku with pip,
+and are now switching to Poetry, you will need to remove the app from Heroku and deploy again.
+
+**Don't forget, in the following steps, to adapt the commands to use `poetry` instead of `pip`.**
 
 ## Create the project directory
 
@@ -75,13 +85,21 @@ application = Cling(get_wsgi_application())
 
 ## Create a requirements-dev.txt
 
+**If you use the Python Poetry Buildpack this step is non necessery.**
+
 - `pip freeze > requirements-dev.txt`
 
 ## Create a file requirements.txt file and include reference to previows file and add two more requirements
 
+**If you use the Python Poetry Buildpack this step is non necessery.**
+
 - `-r requirements-dev.txt`
 
 ### Install production dependences
+
+**If you use the Python Poetry Buildpack this step is non necessery.**
+
+With Poetry use `poetry install` command.
 
 ```
 pip install gunicorn
@@ -93,12 +111,17 @@ pip install  psycopg2
 `web: gunicorn <you-apppath-here>.wsgi`
 
 You can check in django website or heroku website for more information:
+
 - https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/gunicorn/
 - https://devcenter.heroku.com/articles/django-app-configuration
 
 ## Create a file `runtime.txt` and add the following core
 
-- python-3.6.0 (add your python version here)
+**If you use the Python Poetry Buildpack this step is non necessery.**
+
+**For use the Poetry the `runtime.txt` file is do not necessary.**
+
+- python-3.7.8 (add your python version here)
 
 ## Creating the app at Heroku
 
@@ -154,7 +177,7 @@ git push heroku main
 
 ### Also recommend set this configuration to your heroku settings
 
-`WEB_CONCURRENCY = 3`
+`WEB_CONCURRENCY=3`
 
 ### Changing a specific configuration
 

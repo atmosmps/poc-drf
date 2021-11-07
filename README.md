@@ -12,7 +12,7 @@ The final idea is to understand the advantages and disadvantages of adopting the
 - [ ] Automated tests
     - [ ] Integration tests
     - [ ] Unit tests
-- [ ] A modern dependence manager: pyenv or poetry
+- [X] A modern dependence manager: Poetry
 - [ ] Integrate to a external API
     - [ ] http://www.omdbapi.com/#usage
     - [ ] https://docs.github.com/en/rest
@@ -22,10 +22,6 @@ The final idea is to understand the advantages and disadvantages of adopting the
 - [ ] Use a CI service to deploy in heroku lke a gitlab CI
 
 # TODO
-
-- Remover projeto do heroku e recrialo novamente com o build pack do poetry
-- Criar documentação para Deploy com Heroku
-
 - [ ] Refactor endpoints
     - Add a Item endpoint
     - A Categorie contain many movies
@@ -51,6 +47,11 @@ such as ORM other than the one provided by Django itself, for example.
 - https://github.com/jazzband/djangorestframework-simplejwt
 - https://hackernoon.com/openapi-30-schema-with-swagger-ui-for-django-restful-app-4w293zje
 - https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html
+- https://dev.to/aurelmegn/how-to-deploy-poetry-based-fast-api-on-heroku-2hd6
+- https://python-poetry.org/docs/configuration/#listing-the-current-configuration
+- https://python-poetry.org/docs/cli/
+- https://klauslaube.com.br/2020/12/30/poesia-pythonista-com-poetry.html
+- https://testdriven.io/blog/drf-views-part-3/
 
 # [Deploy Django App at Heroku](docs/deploy-django-app-at-heroku.md)
 
