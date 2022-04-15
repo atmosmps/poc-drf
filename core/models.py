@@ -1,9 +1,5 @@
 from django.db import models
 from django.utils import timezone
-
-from address.models import Address
-from rating.models import Rating
-from resource.models import Resource
 from review.models import Review
 
 
@@ -11,14 +7,9 @@ class TouristPlace(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField()
     approved = models.BooleanField(default=False)
-    resource = models.ManyToManyField(Resource)
     review = models.ManyToManyField(Review)
-    rating = models.ManyToManyField(Rating)
     created_at = models.DateTimeField(editable=False)
     updated_at = models.DateTimeField(null=True)
-    address = models.ForeignKey(
-        Address, on_delete=models.CASCADE, null=True, blank=True
-    )
     image = models.ImageField(upload_to='tourist_place', null=True, blank=True)
 
     def __str__(self):

@@ -7,6 +7,14 @@ The final idea is to understand the advantages and disadvantages of adopting the
 
 ## The POC Project
 
+## About
+
+This project contain three apps:
+
+- location: to consult your actual location;
+- movies: to get info for your movies;
+- github_user: to get information of a github user;
+
 ## This project contain
 
 - [X] Auth JWT Authetication
@@ -16,6 +24,7 @@ The final idea is to understand the advantages and disadvantages of adopting the
     - [ ] Unit tests
 - [X] A modern dependence manager: Poetry
 - [ ] Integrate to a external API
+    - [ ] https://ipstack.com/
     - [ ] http://www.omdbapi.com/#usage
     - [ ] https://docs.github.com/en/rest
 - [X] Deploy at Heroku
@@ -47,6 +56,7 @@ such as ORM other than the one provided by Django itself, for example.
 
 ## Articles used to help improve project
 
+- https://simpleisbetterthancomplex.com/tutorial/2018/02/03/how-to-use-restful-apis-with-django.html
 - https://simpleisbetterthancomplex.com/tutorial/2018/12/19/how-to-use-jwt-authentication-with-django-rest-framework.html
 - https://github.com/jazzband/djangorestframework-simplejwt
 - https://hackernoon.com/openapi-30-schema-with-swagger-ui-for-django-restful-app-4w293zje

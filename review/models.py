@@ -13,7 +13,7 @@ class Review(models.Model):
 
     def __str__(self):
         return self.user.username
-    
+
     def save(self, *args, **kwargs):
         """On save, update timestamps."""
         if not self.id:

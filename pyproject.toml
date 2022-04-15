@@ -37,9 +37,11 @@ zipp = "^3.6"
 requests = "^2.26.0"
 
 [tool.poetry.dev-dependencies]
-flake8 = "^4.0"
 pycodestyle = "^2.8"
 pyflakes = "^2.4"
+black = "^22.1.0"
+isort = "^5.10.1"
+pytest = "^7.1.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

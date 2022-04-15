@@ -44,10 +44,7 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "django_filters",
     "core",
-    "resource",
     "review",
-    "rating",
-    "address",
 ]
 
 MIDDLEWARE = [
@@ -81,18 +78,11 @@ TEMPLATES = [
 WSGI_APPLICATION = "app.wsgi.application"
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 default_dburl = "sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
 
-DATABASES = {"default": config("DATABASE_URL", default=default_dburl, cast=dburl)}
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {"default": config(
+    "DATABASE_URL", default=default_dburl, cast=dburl
+)}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -152,3 +142,8 @@ REST_FRAMEWORK = {
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+IPSTACK_URL = config("IPSTACK_URL")
+IPSTACK_API_KEY = config("IPSTACK_API_KEY")
+
+GMAPS_API_KEY = config("GMAPS_API_KEY")

@@ -13,24 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from resource.api.viewsets import ResourceViewSet
 
-from address.api.viewsets import AddressViewSet
 from core.api.viewsets import TouristPlaceViewSet
 from django.contrib import admin
 from django.urls import include, path
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from rating.api.viewsets import RatingViewSet
+from location.views import my_ip_address, my_location
 from rest_framework import routers
 from rest_framework_simplejwt import views as jwt_views
 from review.api.viewsets import ReviewViewSet
 
 router = routers.SimpleRouter()
 router.register(r"touristplaces", TouristPlaceViewSet, basename="TouristPlace")
-router.register(r"resources", ResourceViewSet)
-router.register(r"addresses", AddressViewSet)
 router.register(r"reviews", ReviewViewSet)
-router.register(r"ratings", RatingViewSet)
 
 urlpatterns = [
     path("api/", include(router.urls)),
@@ -54,4 +49,6 @@ urlpatterns = [
         ),
         name="swagger-ui",
     ),
+    path("geo-location/check", my_location, name="geo-location-check"),
+    path("geo-location/my-ip-address", my_ip_address, name="my-ip-address"),
 ]

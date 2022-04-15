@@ -138,7 +138,7 @@ dmypy.json
 cython_debug/
 
 # Editors
-.idea
-.vscode
+.idea/
+.vscode/
 
 media/

@@ -1,5 +1,4 @@
 from rest_framework.viewsets import ModelViewSet
-
 from review.api.serializers import ReviewSerializer
 from review.models import Review
 
