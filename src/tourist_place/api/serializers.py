@@ -1,4 +1,4 @@
-from core.models import TouristPlace
+from tourist_place.models import TouristPlace
 from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer
 

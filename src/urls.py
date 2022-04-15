@@ -14,14 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from core.api.viewsets import TouristPlaceViewSet
 from django.contrib import admin
 from django.urls import include, path
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from location.views import my_ip_address, my_location
 from rest_framework import routers
 from rest_framework_simplejwt import views as jwt_views
+
+from location.views import my_ip_address, my_location
 from review.api.viewsets import ReviewViewSet
+from tourist_place.api.viewsets import TouristPlaceViewSet
 
 router = routers.SimpleRouter()
 router.register(r"touristplaces", TouristPlaceViewSet, basename="TouristPlace")

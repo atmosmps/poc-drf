@@ -1,5 +1,5 @@
-from core.api.serializers import TouristPlaceSerializer
-from core.models import TouristPlace
+from app.api.serializers import TouristPlaceSerializer
+from app.models import TouristPlace
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action, permission_classes
 from rest_framework.filters import SearchFilter
