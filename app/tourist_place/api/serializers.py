@@ -1,4 +1,4 @@
-from tourist_place.models import TouristPlace
+from app.tourist_place.models import TouristPlace
 from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer
 
@@ -9,6 +9,7 @@ class TouristPlaceSerializer(ModelSerializer):
     aninhada, porém, caso seja necessário fazer um POST, a request também
     deverá ser feita passando o objeto inteiro, como Json por exemplo.
     """
+
     # from resource.api.serializers import ResourceSerializer
     # resource = ResourceSerializer(many=True)
 
@@ -17,15 +18,15 @@ class TouristPlaceSerializer(ModelSerializer):
     class Meta:
         model = TouristPlace
         fields = (
-            'id',
-            'name',
-            'description',
-            'image',
-            'rating',
-            'review',
-            'address',
-            'resource',
-            'descricao_completa'
+            "id",
+            "name",
+            "description",
+            "image",
+            "rating",
+            "review",
+            "address",
+            "resource",
+            "descricao_completa",
         )
 
     def get_descricao_completa(self, obj):

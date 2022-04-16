@@ -1,9 +1,8 @@
+from app.location.client import IPStackHttpClient
 from django.conf import settings
 from django.shortcuts import render
 
-from location.client import LocationClient
-
-client = LocationClient()
+client = IPStackHttpClient()
 
 
 def my_location(request):
@@ -16,13 +15,13 @@ def my_location(request):
 
 
 def my_ip_address(request):
-    is_cached = ('geodata' in request.session)
+    is_cached = "geodata" in request.session
 
     if not is_cached:
         data = client.get_data_from_my_ip()
-        request.session['geodata'] = data
+        request.session["geodata"] = data
 
-    geodata = request.session['geodata']
+    geodata = request.session["geodata"]
     return render(
         request,
         "location/index.html",
@@ -32,6 +31,6 @@ def my_ip_address(request):
             "latitude": geodata["latitude"],
             "longitude": geodata["longitude"],
             "api_key": settings.GMAPS_API_KEY,
-            'is_cached': is_cached
+            "is_cached": is_cached,
         },
     )

@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_spectacular",
     "django_filters",
-    "core",
-    "review",
+    "app.review",
+    "app.tourist_place",
 ]
 
 MIDDLEWARE = [
@@ -80,9 +80,7 @@ WSGI_APPLICATION = "app.wsgi.application"
 # Database
 default_dburl = "sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
 
-DATABASES = {"default": config(
-    "DATABASE_URL", default=default_dburl, cast=dburl
-)}
+DATABASES = {"default": config("DATABASE_URL", default=default_dburl, cast=dburl)}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -143,7 +141,7 @@ REST_FRAMEWORK = {
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-IPSTACK_URL = config("IPSTACK_URL")
+IPSTACK_URL = config("IPSTACK_URL", default="http://api.ipstack.com")
 IPSTACK_API_KEY = config("IPSTACK_API_KEY")
 
 GMAPS_API_KEY = config("GMAPS_API_KEY")

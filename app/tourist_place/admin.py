@@ -1,5 +1,4 @@
+from app.tourist_place.models import TouristPlace
 from django.contrib import admin
-
-from .models import TouristPlace
 
 admin.site.register(TouristPlace)

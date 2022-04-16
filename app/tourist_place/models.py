@@ -1,6 +1,6 @@
+from app.review.models import Review
 from django.db import models
 from django.utils import timezone
-from review.models import Review
 
 
 class TouristPlace(models.Model):
@@ -10,7 +10,7 @@ class TouristPlace(models.Model):
     review = models.ManyToManyField(Review)
     created_at = models.DateTimeField(editable=False)
     updated_at = models.DateTimeField(null=True)
-    image = models.ImageField(upload_to='tourist_place', null=True, blank=True)
+    image = models.ImageField(upload_to="tourist_place", null=True, blank=True)
 
     def __str__(self):
         return self.name

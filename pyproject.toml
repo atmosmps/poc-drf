@@ -35,14 +35,13 @@ typing-extensions = "^3.10.0"
 uritemplate = "^4.1"
 zipp = "^3.6"
 requests = "^2.26.0"
-vcrpy = "^4.1.1"
 
 [tool.poetry.dev-dependencies]
 pycodestyle = "^2.8"
 pyflakes = "^2.4"
 black = "^22.1.0"
-isort = "^5.10.1"
 pytest = "^7.1.1"
+vcrpy = "^4.1.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

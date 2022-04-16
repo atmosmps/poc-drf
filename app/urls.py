@@ -20,9 +20,9 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework import routers
 from rest_framework_simplejwt import views as jwt_views
 
-from location.views import my_ip_address, my_location
-from review.api.viewsets import ReviewViewSet
-from tourist_place.api.viewsets import TouristPlaceViewSet
+from app.location.views import my_ip_address, my_location
+from app.review.api.viewsets import ReviewViewSet
+from app.tourist_place.api.viewsets import TouristPlaceViewSet
 
 router = routers.SimpleRouter()
 router.register(r"touristplaces", TouristPlaceViewSet, basename="TouristPlace")
