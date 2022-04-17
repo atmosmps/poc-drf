@@ -33,6 +33,7 @@ This project contain three apps:
 ## TODO
 
 - [ ] Define Autheticated endpoints
+- [ ] Add documentation to run project
 
 ## Positive points
 
@@ -50,16 +51,12 @@ such as ORM other than the one provided by Django itself, for example.
 
 ## Articles used to help improve project
 
-- https://simpleisbetterthancomplex.com/tutorial/2018/12/19/how-to-use-jwt-authentication-with-django-rest-framework.html
 - https://simpleisbetterthancomplex.com/tutorial/2018/02/03/how-to-use-restful-apis-with-django.html
 - https://simpleisbetterthancomplex.com/tutorial/2018/12/19/how-to-use-jwt-authentication-with-django-rest-framework.html
 - https://github.com/jazzband/djangorestframework-simplejwt
 - https://hackernoon.com/openapi-30-schema-with-swagger-ui-for-django-restful-app-4w293zje
 - https://dev.to/aurelmegn/how-to-deploy-poetry-based-fast-api-on-heroku-2hd6
-- https://python-poetry.org/docs/cli/
-- https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html
 - https://klauslaube.com.br/2020/12/30/poesia-pythonista-com-poetry.html
-- https://klauslaube.com.br/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html
 
 ## [Deploy Django App at Heroku](docs/deploy-django-app-at-heroku.md)
 
