@@ -62,7 +62,7 @@ ROOT_URLCONF = "app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [BASE_DIR / "app" / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -141,7 +141,7 @@ REST_FRAMEWORK = {
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-IPSTACK_URL = config("IPSTACK_URL")
+IPSTACK_HOST = config("IPSTACK_HOST")
 IPSTACK_API_KEY = config("IPSTACK_API_KEY")
 
 GMAPS_API_KEY = config("GMAPS_API_KEY")

@@ -1,25 +1,16 @@
-from app.location.client import IPStackHttpClient
+from app.location.extensions import IPStackBackend
 from django.conf import settings
+from django.http import JsonResponse
 from django.shortcuts import render
 
-client = IPStackHttpClient()
 
-
-def my_location(request):
-    data = client.get()
-    return render(
-        request,
-        "location/index.html",
-        {"ip": data["ip"], "country": data["country_name"]},
-    )
-
-
-def my_ip_address(request):
+def get_data_from_my_ip(request):
+    backend = IPStackBackend()
     is_cached = "geodata" in request.session
 
     if not is_cached:
-        data = client.get_data_from_my_ip()
-        request.session["geodata"] = data
+        my_ip_data = backend.get_data_from_my_ip()
+        request.session["geodata"] = my_ip_data
 
     geodata = request.session["geodata"]
     return render(
@@ -34,3 +25,15 @@ def my_ip_address(request):
             "is_cached": is_cached,
         },
     )
+
+
+def get_data_from_my_ip_json_response(request):
+    backend = IPStackBackend()
+    is_cached = "geodata" in request.session
+
+    if not is_cached:
+        my_ip_data = backend.get_data_from_my_ip()
+        request.session["geodata"] = my_ip_data
+
+    geodata = request.session["geodata"]
+    return JsonResponse(geodata)

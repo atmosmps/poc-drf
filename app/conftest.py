@@ -2,6 +2,7 @@ import os
 
 import pytest
 import vcr
+from testfixtures import LogCapture
 
 VCR_CASSETTES_DIR = os.path.join(os.path.dirname(__file__), "vcr")
 
@@ -14,3 +15,9 @@ def vcr_client():
         record_mode="once",
         match_on=["uri", "method", "query", "headers", "body"],
     )
+
+
+@pytest.fixture()
+def log_capture():
+    with LogCapture() as capture:
+        yield capture

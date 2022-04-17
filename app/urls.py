@@ -20,7 +20,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework import routers
 from rest_framework_simplejwt import views as jwt_views
 
-from app.location.views import my_ip_address, my_location
+from app.location.views import get_data_from_my_ip, get_data_from_my_ip_json_response
 from app.review.api.viewsets import ReviewViewSet
 from app.tourist_place.api.viewsets import TouristPlaceViewSet
 
@@ -50,6 +50,8 @@ urlpatterns = [
         ),
         name="swagger-ui",
     ),
-    path("geo-location/check", my_location, name="geo-location-check"),
-    path("geo-location/my-ip-address", my_ip_address, name="my-ip-address"),
+    path("geo-location/my-ip", get_data_from_my_ip, name="my-ip"),
+    path(
+        "geo-location/my-ip-json", get_data_from_my_ip_json_response, name="my-ip-json"
+    ),
 ]
