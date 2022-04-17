@@ -23,10 +23,8 @@ This project contain three apps:
     - [ ] Integration tests
     - [ ] Unit tests
 - [X] A modern dependence manager: Poetry
-- [ ] Integrate to a external API
-    - [ ] https://ipstack.com/
-    - [ ] http://www.omdbapi.com/#usage
-    - [ ] https://docs.github.com/en/rest
+- [X] Integrate to a external API
+    - [X] https://ipstack.com/documentation
 - [X] Deploy at Heroku
 - [ ] Deploy at Heroku as Docker Container
 - [ ] Dockerized app
@@ -34,11 +32,7 @@ This project contain three apps:
 
 ## TODO
 
-- [ ] https://testdriven.io/blog/drf-views-part-3/
-- [ ] Refactor endpoints
-    - Add a Item endpoint
-    - A Categorie contain many movies
-    - A Item is a Autheticated endpint and categorie to
+- [ ] Define Autheticated endpoints
 
 ## Positive points
 
@@ -56,6 +50,7 @@ such as ORM other than the one provided by Django itself, for example.
 
 ## Articles used to help improve project
 
+- https://simpleisbetterthancomplex.com/tutorial/2018/12/19/how-to-use-jwt-authentication-with-django-rest-framework.html
 - https://simpleisbetterthancomplex.com/tutorial/2018/02/03/how-to-use-restful-apis-with-django.html
 - https://simpleisbetterthancomplex.com/tutorial/2018/12/19/how-to-use-jwt-authentication-with-django-rest-framework.html
 - https://github.com/jazzband/djangorestframework-simplejwt
