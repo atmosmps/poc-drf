@@ -57,6 +57,8 @@ such as ORM other than the one provided by Django itself, for example.
 - https://hackernoon.com/openapi-30-schema-with-swagger-ui-for-django-restful-app-4w293zje
 - https://dev.to/aurelmegn/how-to-deploy-poetry-based-fast-api-on-heroku-2hd6
 - https://klauslaube.com.br/2020/12/30/poesia-pythonista-com-poetry.html
+- https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html
+- https://simpleisbetterthancomplex.com/tutorial/2018/02/03/how-to-use-restful-apis-with-django.html#basic-example-geo-location-api
 
 ## [Deploy Django App at Heroku](docs/deploy-django-app-at-heroku.md)
 
