@@ -19,9 +19,9 @@ This project contain three apps:
 
 - [X] Auth JWT Authetication
 - [X] Open API Integration
-- [ ] Automated tests
-    - [ ] Integration tests
-    - [ ] Unit tests
+- [X] Automated tests
+    - [X] Integration tests
+    - [X] Unit tests
 - [X] A modern dependence manager: Poetry
 - [X] Integrate to a external API
     - [X] https://ipstack.com/documentation
