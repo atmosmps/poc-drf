@@ -1,15 +1,13 @@
 import json
-from cgitb import text
-from unittest import mock
-
 import pytest
 import requests
+from unittest import mock
+
 from app.location.client import IPStackHttpClient
 from app.location.exceptions import (
     UnableToGetDataDueAPIHttpException,
     UnableToGetDataDueTimeoutException,
 )
-from app.location.tests.conftest import response_usage_limit_reached_data
 
 from ..constants import ACCESS_KEY, HTTP_URL, HTTPS_URL
 
@@ -185,5 +183,5 @@ class TestLocationClientGetCheck:
             )
         )
 
-    def test_should_return_ip_data_successfully(self, requests_mock):
+    def test_should_return_ip_data_successfully(self):
         ...

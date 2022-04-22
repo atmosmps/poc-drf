@@ -7,7 +7,7 @@ from app.location.exceptions import (
     UnableToGetDataDueTimeoutException,
 )
 
-from .constants import ACCESS_KEY, HTTP_URL
+from app.location.constants import ACCESS_KEY, HTTP_URL
 
 logger = logging.getLogger(__name__)
 
