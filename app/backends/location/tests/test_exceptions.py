@@ -1,4 +1,3 @@
-from app.backends.checkout.exceptions import CheckoutBackendException
 from app.backends.location.exceptions import LocationBackendException
 
 
