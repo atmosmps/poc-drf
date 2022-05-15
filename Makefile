@@ -61,3 +61,9 @@ ci-coverage:
 	$(PYTEST_CMD) --no-cov-on-fail --cov=app --cov-config=src/app/.coveragerc --cov-report=xml --cov-report=term-missing
 	$(GIT_FETCH_MAIN_CMD)
 	diff-cover coverage.xml --compare-branch=origin/main --fail-under $(MINIMUM_COVERAGE) --html-report coverage-diff.html
+
+heroku-login:
+	heroku login
+
+heroku-deploy:
+	git push heroku main
