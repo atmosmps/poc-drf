@@ -1,73 +1,61 @@
-PYTEST_CMD = python -m py.test -W ignore::DeprecationWarning
+DJANGO_SETTINGS_MODULE = app.settings
+APP_COMMAND = python manage.py
+PYTEST_CMD = python -m py.test -W ignore::DeprecationWarning --ds=$(DJANGO_SETTINGS_MODULE)
 PYTEST_COVERAGE_CMD = $(PYTEST_CMD) --no-cov-on-fail --cov=app --cov-config=app/.coveragerc
 MINIMUM_COVERAGE = 90
 GIT_FETCH_MAIN_CMD = git fetch origin main:refs/remotes/origin/main
 
+server:
+	$(APP_COMMAND) runserver
 
-# Development
-build-run:
-	# Run the development server on background
-	docker-compose up -d --build
-	# Now head to http://0.0.0.0:5000/api/v1/healthcheck
+test:
+	$(PYTEST_CMD) -v -x --no-migrations --reuse-db
 
-see-log-app:
-	docker-compose logs app
+test-matching:
+	$(PYTEST_CMD) -s -v -x -rs $(Q)
 
-build-run-attached:
-	# Run the development server attached showing the logs
-	docker-compose up --build
+coverage:
+	$(PYTEST_COVERAGE_CMD)
 
-stop-docker:
-	docker-compose down -v
-
-test: build-run
-	docker-compose exec app $(PYTEST_CMD) -v -x -n auto
-	make stop-docker
-
-test-matching: build-run
-	docker-compose exec app $(PYTEST_CMD) -s -v -x -rs -k $(Q)
-
-coverage: build-run
-	docker-compose exec app $(PYTEST_COVERAGE_CMD)
-	make stop-docker
-
-test-coverage: build-run
-	docker-compose exec app $(PYTEST_COVERAGE_CMD) --cov-report=xml
+test-coverage:
+	$(PYTEST_COVERAGE_CMD) --cov-report=xml
 	$(GIT_FETCH_MAIN_CMD)
 	diff-cover ./coverage.xml --compare-branch=main --fail-under $(MINIMUM_COVERAGE)
-	make stop-docker
 
-test-coverage-html: build-run
-	docker-compose exec app $(PYTEST_COVERAGE_CMD) --cov-report=xml --cov-report=html
+test-coverage-html:
+	$(PYTEST_COVERAGE_CMD) --cov-report=xml --cov-report=html
 	$(GIT_FETCH_MAIN_CMD)
 	diff-cover ./coverage.xml --compare-branch=main
 	echo "Report available on htmlcov/index.html"
-	make stop-docker
 
-test-coverage-diff-html: build-run
-	docker-compose exec app $(PYTEST_COVERAGE_CMD) --cov-report=xml
+test-coverage-diff-html:
+	$(PYTEST_COVERAGE_CMD) --cov-report=xml
 	$(GIT_FETCH_MAIN_CMD)
 	diff-cover ./coverage.xml --compare-branch=main --html-report coverage-diff.html
 	echo "Report available on htmlcov/index.html"
-	make stop-docker
 
-lint: build-run
-	docker-compose exec app black --check .
-	docker-compose exec app flake8 --exclude=*/__init__.py
-	make stop-docker
+lint:
+	black --check .
+	# flake8 --exclude=*/__init__.py
 
-lint-fix: build-run
-	docker-compose exec app black .
-	make stop-docker
+lint-fix:
+	black .
 
+migrations:
+	$(APP_COMMAND) makemigrations
 
-# CI
+migrate:
+	$(APP_COMMAND) migrate
+
+check-migrations:
+	$(APP_COMMAND) check-migrations
+
 ci-lint:
 	black --check .
-	flake8 --exclude=*/__init__.py,./venv
+	# flake8 --exclude=*/__init__.py,./venv
 
 ci-install:
-	pip install -r requirements-dev.txt --cache-dir=$(CACHE_DIR)
+	# pip install -r requirements-dev.txt --cache-dir=$(CACHE_DIR)
 
 ci-coverage:
 	$(PYTEST_CMD) --no-cov-on-fail --cov=app --cov-config=src/app/.coveragerc --cov-report=xml --cov-report=term-missing
