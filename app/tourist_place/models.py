@@ -1,6 +1,7 @@
-from app.review.models import Review
 from django.db import models
 from django.utils import timezone
+
+from app.review.models import Review
 
 
 class TouristPlace(models.Model):

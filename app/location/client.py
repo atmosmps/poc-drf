@@ -1,13 +1,12 @@
 import json
 import logging
-
 import requests
+
+from app.location.constants import ACCESS_KEY, HTTP_URL
 from app.location.exceptions import (
     UnableToGetDataDueAPIHttpException,
     UnableToGetDataDueTimeoutException,
 )
-
-from app.location.constants import ACCESS_KEY, HTTP_URL
 
 logger = logging.getLogger(__name__)
 

@@ -1,7 +1,8 @@
-from app.location.extensions import IPStackBackend
 from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render
+
+from app.location.extensions import IPStackBackend
 
 
 def get_data_from_my_ip(request):
