@@ -12,8 +12,6 @@ The final idea is to understand the advantages and disadvantages of adopting the
 This project contain three apps:
 
 - location: to consult your actual location;
-- movies: to get info for your movies;
-- github_user: to get information of a github user;
 
 ## This project contain
 
@@ -26,11 +24,16 @@ This project contain three apps:
 - [X] Integrate to a external API
     - [X] https://ipstack.com/documentation
 - [X] Deploy at Heroku
-- [ ] Deploy at Heroku as Docker Container
-- [ ] Pytest with coverage
-- [ ] Dockerized app
-- [ ] Config Makefile
+- [X] Config Makefile
+- [X] Pytest with coverage
+
+## Dockerized app
+
+*OBS: A lot of changes would be needed here, and this would remove almost all content about traditional deployment using Heroku, so the deploy configurations with docker, were done in this other project:*
+
+- [ ] Deploy at Heroku as Docker Container.
 - [ ] Use a CI service to deploy in heroku lke a gitlab CI
+- [ ] Dockerized app
 
 ## TODO
 
