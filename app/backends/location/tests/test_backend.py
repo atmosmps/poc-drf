@@ -1,4 +1,5 @@
 import pytest
+
 from app.backends.location.backend import LocationBackend
 
 

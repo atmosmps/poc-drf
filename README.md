@@ -27,7 +27,9 @@ This project contain three apps:
     - [X] https://ipstack.com/documentation
 - [X] Deploy at Heroku
 - [ ] Deploy at Heroku as Docker Container
+- [ ] Pytest with coverage
 - [ ] Dockerized app
+- [ ] Config Makefile
 - [ ] Use a CI service to deploy in heroku lke a gitlab CI
 
 ## TODO
