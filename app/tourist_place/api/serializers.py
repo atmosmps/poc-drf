@@ -1,6 +1,7 @@
-from app.tourist_place.models import TouristPlace
 from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer
+
+from app.tourist_place.models import TouristPlace
 
 
 class TouristPlaceSerializer(ModelSerializer):
@@ -22,10 +23,7 @@ class TouristPlaceSerializer(ModelSerializer):
             "name",
             "description",
             "image",
-            "rating",
             "review",
-            "address",
-            "resource",
             "descricao_completa",
         )
 
